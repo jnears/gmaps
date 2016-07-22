@@ -1,0 +1,31 @@
+<h1>
+  <%= @company.name %>
+</h1>
+<p>
+  lat:
+  <%= @company.lat %>
+</p>
+<p>
+  lng:
+  <%= @company.lng %>
+
+</p>
+
+
+<!-- map div
+-->
+<div id="map" style="width: 100%; height: 300px;"></div>
+<script>
+  
+  $(document).ready(function(){
+    // var lat = <%= @company.name.to_json %>;
+    // var jon = lat.to_json;
+    // console.log(jon);
+    var data = { lat: <%= @company.lat %>,  lng: <%= @company.lng %>,  name: '<%= @company.name %>', address: '<%= @company.address %>', postcode: '<%= @company.postcode %>' };
+     
+    console.log(data);
+     // var company = {@company.name.to_json}    // pass ruby variable to javascript
+     gmap_show(data);    // init show map for company card (only print marker)
+  });
+
+</script>

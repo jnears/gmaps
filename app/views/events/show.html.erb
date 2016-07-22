@@ -1,0 +1,28 @@
+<h1>
+  <%= @event.title %>
+</h1>
+
+<p>
+ <%= @event.body %>
+
+</p>
+
+
+
+
+
+
+<!-- map div
+-->
+<div id="map" style="width: 100%; height: 300px;"></div>
+<script>
+  
+  $(document).ready(function(){
+
+    var data = { lat: <%= @event.company.lat %>,  lng: <%= @event.company.lng %>,  name: '<%= @event.company.name %>', address: '<%= @event.company.address %>', postcode: '<%= @event.company.postcode %>' };
+     
+
+     gmap_show(data);    // init show map for company card (only print marker)
+  });
+
+</script>

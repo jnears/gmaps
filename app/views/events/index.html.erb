@@ -1,0 +1,29 @@
+<h1>Events#index</h1>
+
+<%= link_to "New event", new_event_path %>
+<table width="100%">
+  <tr>
+    <th width="20%">Title</th>
+    <th width="30%">Body</th>
+    <th width="30%">comapny</th>
+    <th width="20%"></th>
+  </tr>
+  <% @events.each do |event| %>
+    <tr>
+      <td>
+        <%= link_to event.title, edit_event_path(event) %>
+        <%= link_to "View event", event_path(event) %>
+      </td>
+      <td>
+        <%= event.body %>
+      </td>
+      <td>
+        <%= event.company.name %>
+      </td>
+
+      <td>
+  <%= link_to '<i class="fa fa-times-circle"></i> Delete'.html_safe, event_path(event), class: 'btn btn-danger btn-small', method: :delete, data: { confirm:'Are you sure?' } %>
+</td>
+    </tr>
+  <% end %>
+</table>

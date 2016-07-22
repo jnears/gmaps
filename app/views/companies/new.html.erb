@@ -1,0 +1,22 @@
+<h1>Create company</h1>
+<%= form_for @company do |f| %>
+  <%= f.label :name, 'Name or street' %>
+  <%= f.text_field :name %>
+  <%= f.label :address, 'Address' %>
+  <%= f.text_field :address %>
+  <%= f.label :postcode, 'Postcode' %>
+  <%= f.text_field :postcode %>
+  <!-- map div
+  -->
+  <div id="map" style="width: 550px; height: 350px;"></div>
+  <%= f.hidden_field :lat, id: 'map_lat' %>
+  <%= f.hidden_field :lng, id: 'map_lng' %>
+  <%= f.submit 'CREATE' %>
+<% end %>
+<script>
+  
+  $(document).ready(function(){
+    gmap_form(null);    // form map for new view (print nothing with possibility of put marker)
+  });
+
+</script>
